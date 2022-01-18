@@ -7,18 +7,18 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     drawing=true;
-    ui->label->setText("Drawing - ON");
+    ui->pushButton->setText("Drawing - ON");
 }
 
 void MainWindow::Crtanje()
 {
     if(drawing==true){
         drawing=false;
-        ui->label->setText("Drawing - OFF");
+        ui->pushButton->setText("Drawing - OFF");
     }
     else{
         drawing=true;
-        ui->label->setText("Drawing - ON");
+        ui->pushButton->setText("Drawing - ON");
     }
 
 }
@@ -62,11 +62,6 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 
 
-void MainWindow::on_actionDrawing_ON_OFF_triggered()
-{
-    Crtanje();
-}
-
 void MainWindow::savePoints()
 {
     QString fileName = QFileDialog::getSaveFileName(this, "Save As...", "", "FESB File (*.fsb)");
@@ -96,7 +91,6 @@ void MainWindow::loadPoints()
         QDataStream in(&file);
         in >> vector;
         file.close();
-        drawing=true;
         update();
 
     }
@@ -110,5 +104,11 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionLoad_triggered()
 {
     loadPoints();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    Crtanje();
 }
 

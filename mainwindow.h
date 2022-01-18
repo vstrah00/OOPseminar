@@ -39,8 +39,8 @@ protected:
     void mousePressEvent(QMouseEvent *event)override;
 
 private slots:
-    void on_actionDrawing_ON_OFF_triggered();
     void on_actionSave_triggered();
     void on_actionLoad_triggered();
+    void on_pushButton_clicked();
 };
 #endif // MAINWINDOW_H
